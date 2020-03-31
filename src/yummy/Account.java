@@ -12,6 +12,16 @@ import java.util.List;
 /**
  *Abstract class <i> Account</i>, from it inheritance 'user' and 'company'.
  * This is super class for all types of accounts.
+ * Class <i>Account</i> following fields:
+ *  String name, is account owner firstname
+ *  String surname, is account owner surname
+ *  String email, is account owner email
+ *  String password, is account owner password 
+ *  String localization, is account owner current localization
+ *  List Order orders, is history of orders on owner account
+ * Beyond setting appropriate paramiters, it also create ArrayList which
+ * can store class <i>Order</i>. 
+ * It is available for subclasses.
  * 
  * @author fdrew
  */
@@ -20,25 +30,11 @@ import java.util.List;
 
 public abstract class Account {      
     
-     /**
-     * Class <i>Account</i> following fields:
-     * String name, is account owner firstname
-     * String surname, is account owner surname
-     * String email, is account owner email
-     * String password, is account owner password 
-     * String localization, is account owner current localization
-     * List Order orders, is history of orders on owner account
-     * Beyond setting appropriate paramiters, it also create ArrayList which
-     * can store class <i>Order</i>. 
-     * It is available for subclasses.
-     * 
-     * 
-     */
     private String name;            //account owner name 
     private String surname;         //account owner surname 
     private String email;           //account owner's email
     private String password;        //account owner password
-    private String localization;  //localization where/from deliver 
+    private String localization;    //localization where/from deliver 
     private List<Order> orders;     //history of orders
 
 
@@ -49,18 +45,16 @@ public abstract class Account {
      */
     public abstract void printProfile();
     
-    //super constructor for class user and company
-
     /**
-     *<b>Constructor</b> for class <i>Account</i>, it needs following parameters:
-     * @param name, is account owner firstname
-     * @param surname, is account owner surname
-     * @param email, is account owner email
-     * @param password, is account owner password 
-     * @param localization, is account owner current localization
-     * Beyond setting appropriate paramiters, it also create ArrayList which
+     *<b>Constructor</b> for class <i>Account</i>, it needs following parameters 
+     * five string parameters. Beyond setting appropriate paramiters, it also create ArrayList which
      * can store class <i>Order</i>. 
      * It is available for subclasses.
+     * @param name is account owner firstname
+     * @param surname is account owner surname
+     * @param email is account owner email
+     * @param password is account owner password 
+     * @param localization is account owner current localization
      */
     public Account(String name, String surname, String email, String password,String localization){
         this.setName(name);
@@ -79,7 +73,7 @@ public abstract class Account {
      * @return account owner firstname in String format
      */
     
-    public String getName(){
+    public final String getName(){
         return name;
     }
     
@@ -175,7 +169,7 @@ public abstract class Account {
 
     /**
      *Method <b> saveOrder(Order newOrder)</b> is a function which add new object
-     * <i>Order<\i> to existing list on field orders in class <i>Account</i>.
+     * <i>Order</i> to existing list on field orders in class <i>Account</i>.
      * @param newOrder element which will be added to the list, type <i>Order</i>
      */
     public void saveOrder(Order newOrder){
@@ -184,7 +178,7 @@ public abstract class Account {
 
     /**
      *Method <b> saveOrder(Order newOrder)</b> is a function which remove object
-     * <i>Order<\i> from existing list on field this.orders in class <i>Account</i>.
+     * <i>Order</i> from existing list on field this.orders in class <i>Account</i>.
      * @param orderToRemove element which will be removed from the list, type <i>Order</i>
      */
     public void removeOrder(Order orderToRemove){
