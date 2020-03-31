@@ -21,6 +21,10 @@ public final class Order {
     
     //constructor - order is empty 
     //example of overloading
+
+    /**
+     *
+     */
     public Order(){
         this.totalPrice=0;
         this.allOrderedItems = new ArrayList<Product>();
@@ -29,6 +33,13 @@ public final class Order {
     }
     
     //constructor - when we arleady have all information for an order
+
+    /**
+     *
+     * @param companyFrom
+     * @param whoOrdered
+     * @param listOfProducts
+     */
 
     public Order(String companyFrom, String whoOrdered, List<Product> listOfProducts){
         this.setCompanyFrom(companyFrom);
@@ -39,24 +50,45 @@ public final class Order {
     }
 
     //Hermetization OOP principle - Accessors 
+
+    /**
+     *
+     * @return
+     */
  
     public double getTotalPrice(){
         return this.totalPrice;
     }
     
+    /**
+     *
+     * @return
+     */
     public List<Product> getAllOrderedItems(){
         return this.allOrderedItems;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getCompanyFrom(){
         return this.companyFrom;
     }   
     
+    /**
+     *
+     * @return
+     */
     public String getWhoOrdered(){
         return this.whoOrdered;
     }
     
     //Hermetization OOP principle - Mutators
+
+    /**
+     *
+     */
 
     public void setTotalPrice(){    //goes through all list and sum their price
         double sum = 0;
@@ -66,23 +98,44 @@ public final class Order {
         this.totalPrice = sum;
     }
     
+    /**
+     *
+     * @param companyFrom
+     */
     public void setCompanyFrom(String companyFrom){
         this.companyFrom = companyFrom;
     }   
     
+    /**
+     *
+     * @param whoOrdered
+     */
     public void setWhoOrdered(String whoOrdered){
         this.whoOrdered = whoOrdered;
     }
     
     //Methods which help dealing with list add and remove element
+
+    /**
+     *
+     * @param newAssortment
+     */
     
     public void saveOrderedItem(Product newAssortment){
         this.allOrderedItems.add(newAssortment);
     }
+
+    /**
+     *
+     * @param assortmentToRemove
+     */
     public void removeOrderedItem(Product assortmentToRemove){
         this.allOrderedItems.remove(assortmentToRemove);
     }
     
+    /**
+     *
+     */
     public void printOrder(){    //Prints description about product
         System.out.print("Information about Order: \n");
         System.out.print("Who ordered: " + this.getWhoOrdered() + "\nFrom which company: " + this.getCompanyFrom() + "\n" );

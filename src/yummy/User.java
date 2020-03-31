@@ -13,12 +13,19 @@ import java.util.Date;
  */
 public final class User extends Account {
     
+    /**
+     *
+     */
     protected String nickname;      //users nickname  
     private int age;                //age of user crucial if user want to buy items 
     private String dateOfBirth;     //not dedicated for his/her age
     private final Yummy yummyApp;
     //Constructor for testing if object creates properly
     // example of overloading
+
+    /**
+     *
+     */
     public User(){
         super(null, null, null, null, null);
         this.age = 0;
@@ -28,6 +35,18 @@ public final class User extends Account {
     } 
     
     //Constructor assinging values after creating user account
+
+    /**
+     *
+     * @param nickname
+     * @param name
+     * @param surname
+     * @param email
+     * @param password
+     * @param localization
+     * @param dateOfBirth
+     * @param yummyApp
+     */
     
     public User(String nickname,String name, String surname, String email, String password,String localization, String dateOfBirth, Yummy yummyApp){
         super(name, surname, email, password, localization);
@@ -37,24 +56,46 @@ public final class User extends Account {
     } 
     
     //Hermetization OOP principle - Accessors 
+
+    /**
+     *
+     * @return
+     */
     
     public int getAge(){
         return age;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getDateOfBirth(){
         return dateOfBirth;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getNickname(){
         return nickname;
     }
     
+    /**
+     *
+     * @return
+     */
     public Yummy getYummyApp(){
         return yummyApp;
     }
     
     //Hermetization OOP principle - Mutators
+
+    /**
+     *
+     * @param birth
+     */
 
     public void setAgeAndBirthDate(String birth){
         //initializing local variable needed to transform date and count age
@@ -82,10 +123,17 @@ public final class User extends Account {
         }
     }
     
+    /**
+     *
+     * @param newNickname
+     */
     public void setNickname(String newNickname){
         this.nickname = newNickname;
     }
     
+    /**
+     *
+     */
     @Override
     public void printProfile(){ //Prints information about user
         System.out.print("Information about user account: \n");
@@ -99,6 +147,11 @@ public final class User extends Account {
     //creating user
     //print profile 
     //look for past orders (no orders)
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         User me = new User("Drewno", "Filip","Drewnowski","f@wp.pl","123","Kielpino gorne","17-02-1998", null);
         me.printProfile();

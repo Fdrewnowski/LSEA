@@ -19,6 +19,16 @@ public final class Company extends Account{
    
     //Constructor assinging values after creating company account
 
+    /**
+     *
+     * @param companyName
+     * @param name
+     * @param surname
+     * @param email
+     * @param password
+     * @param localization
+     */
+
     public Company(String companyName,String name, String surname, String email, String password, String localization) {
         super(name, surname, email, password, localization);
         this.setCompanyName(companyName);
@@ -32,27 +42,53 @@ public final class Company extends Account{
     
     //Hermetization OOP principle - Accessors 
 
+    /**
+     *
+     * @return
+     */
+
     public String getCompanyName(){
         return this.companyName;
     }
     
+    /**
+     *
+     * @return
+     */
     public double getRate(){
         return this.rate;
     }
     
+    /**
+     *
+     * @return
+     */
     public List<Product> getAssortment(){
         return this.assortment;
     }
 
     //Hermetization OOP principle - Mutators
 
+    /**
+     *
+     * @param newCompanyName
+     */
+
     public void setCompanyName(String newCompanyName){
         this.companyName = newCompanyName;
     }
+
+    /**
+     *
+     * @param newRate
+     */
     public void setRate(double newRate){
         this.rate = newRate;
     }
     
+    /**
+     *
+     */
     @Override
     public void printProfile(){ //Prints information about company
         System.out.print("Information about Company: \n");
@@ -63,13 +99,26 @@ public final class Company extends Account{
     }
     
     //Methods which helps dealing with list of assortment
+
+    /**
+     *
+     * @param newAssortment
+     */
     public void saveAssortment(Product newAssortment){
         this.assortment.add(newAssortment);
     }
+
+    /**
+     *
+     * @param assortmentToRemove
+     */
     public void removeAssortment(Product assortmentToRemove){
         this.assortment.remove(assortmentToRemove);
     }
     
+    /**
+     *
+     */
     public void addAssortment(){    //method through which new product can be added
         String name, desc;          //to assortment of company
         boolean onStock;
@@ -88,6 +137,11 @@ public final class Company extends Account{
         //newAssortment.printProduct();         checking what was inserted
     }
     
+    /**
+     *
+     * @param name
+     * @return
+     */
     public Product chooseAssortment(String name){ //go through list and search 
         for(Product p : this.getAssortment()){    // for named product
             if(p.getName().equals(name)){
@@ -97,12 +151,20 @@ public final class Company extends Account{
         return null;
     }
     
+    /**
+     *
+     */
     public void printAssortment(){      //prints all products in an offer
         for(Product p : this.getAssortment()){
             p.printProduct();  
         }
     }
     
+    /**
+     *
+     * @param orderingUser
+     * @return
+     */
     public Order createOrder(User orderingUser){     //using this method user can order
         Order newOrder = new Order();           //his/her shopping
         Product pro;
@@ -141,6 +203,11 @@ public final class Company extends Account{
     //creating company
     //adding first assortment from command line 
     //checking if it inserted and what was created
+
+    /**
+     *
+     * @param args
+     */
     
      public static void main(String[] args) {
         Company comp = new Company("Nice shop","Roman","Nice","nice@ro.tu","1234","Wrzeszcz");
