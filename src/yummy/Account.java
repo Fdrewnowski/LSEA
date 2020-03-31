@@ -46,8 +46,8 @@ public abstract class Account {
     public abstract void printProfile();
     
     /**
-     *<b>Constructor</b> for class <i>Account</i>, it needs following parameters 
-     * five string parameters. Beyond setting appropriate paramiters, it also create ArrayList which
+     *<b>Constructor</b> for class <i>Account</i>, it needs five string parameters.
+     * Beyond setting appropriate paramiters, it also create ArrayList which
      * can store class <i>Order</i>. 
      * It is available for subclasses.
      * @param name is account owner firstname

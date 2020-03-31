@@ -20,13 +20,16 @@ public final class Company extends Account{
     //Constructor assinging values after creating company account
 
     /**
-     *
-     * @param companyName
-     * @param name
-     * @param surname
-     * @param email
-     * @param password
-     * @param localization
+     *<b>Constructor</b> for class <i>Company</i>, it needs following parameters 
+     * six string parameters describing object. Beyond setting appropriate paramiters, it also create ArrayList which
+     * can store class <i>Product</i>. Variables name, surname, email, password and localization
+     * are given to super constructor in class <i>Account</i>.
+     * @param companyName is a name of company for which account was made
+     * @param name is account owner firstname
+     * @param surname is account owner surname
+     * @param email is account owner email
+     * @param password is account owner password 
+     * @param localization is account owner current localization
      */
 
     public Company(String companyName,String name, String surname, String email, String password, String localization) {
@@ -43,8 +46,8 @@ public final class Company extends Account{
     //Hermetization OOP principle - Accessors 
 
     /**
-     *
-     * @return
+     *Method <b> getCompanyName()</b> is an accessor in class <i>Company</i>.
+     * @return name of the company in String format
      */
 
     public String getCompanyName(){
@@ -52,16 +55,17 @@ public final class Company extends Account{
     }
     
     /**
-     *
-     * @return
+     *Method <b> getRate()</b> is an accessor in class <i>Company</i>.
+     * @return rate of the company in double format
      */
     public double getRate(){
         return this.rate;
     }
     
     /**
-     *
-     * @return
+     *Method <b> getAssortment()</b> is an accessor in class <i>Company</i>, it
+     * returns list of assortment.
+     * @return list of objects type class <i>Product</i>
      */
     public List<Product> getAssortment(){
         return this.assortment;
@@ -70,8 +74,9 @@ public final class Company extends Account{
     //Hermetization OOP principle - Mutators
 
     /**
-     *
-     * @param newCompanyName
+     *Method <b> setCompanyName(String newCompanyName)</b> is a mutator that changes
+     * name of the company in class <i>Company</i>.
+     * @param newCompanyName new name of the company in String format
      */
 
     public void setCompanyName(String newCompanyName){
@@ -79,8 +84,9 @@ public final class Company extends Account{
     }
 
     /**
-     *
-     * @param newRate
+     *Method <b> setRate(double newRate)</b> is a mutator that changes
+     * rate which is assigned to company, for example after actualization, in class <i>Company</i>.
+     * @param newRate new rate number in double format
      */
     public void setRate(double newRate){
         this.rate = newRate;
