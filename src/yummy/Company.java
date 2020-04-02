@@ -9,7 +9,13 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ *Class <i> Company</i>, extends class <i>Account</i>.
+ * Class <i>Company</i> following fields:
+ *  String companyName, is name of the company
+ *  double rate, is rating of the company in the system
+ *  List Product assortment, is list of all products offered by company
+ * Beyond setting appropriate paramiters, it also create ArrayList which
+ * can store class <i>Product</i>. 
  * @author fdrew
  */
 public final class Company extends Account{
@@ -142,9 +148,9 @@ public final class Company extends Account{
         
         System.out.print("Insert: name(String format),\n price(double format),\n short description(String format),\n is it available(true/false)" + "\n");
 
-        name = myObj.nextLine();                              // 
-        price = Double.parseDouble(myObj.nextLine());        // 
-        desc = myObj.nextLine();                            // Read user input
+        name = myObj.nextLine();                           //   
+        price = Double.parseDouble(myObj.nextLine());      //  
+        desc = myObj.nextLine();                           // Read user input
         onStock = Boolean.parseBoolean(myObj.nextLine());  // 
  
         Product newAssortment = new Product(name,price, desc, onStock);
