@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *Class <i> Company</i>, extends class <i>Account</i>.
+ *Class <i> Company</i>, extends class <i>Account</i>. It is speciffic account
+ * for companies, which can provide their servieces by yummy app.
  * Class <i>Company</i> following fields:
  *  String companyName, is name of the company
  *  double rate, is rating of the company in the system

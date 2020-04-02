@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Abstract class <i> Account</i>, from it inheritance 'user' and 'company'.
+ *Abstract class <i> Account</i>, from it inheritance <i>User</i> and <i>Company</i>.
  * This is super class for all types of accounts.
  * Class <i>Account</i> following fields:
  *  String name, is account owner firstname

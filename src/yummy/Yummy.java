@@ -10,20 +10,20 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ *Class Yummy is main class for this project
+ * 
  * @author fdrew
  */
 public class Yummy {
-
-    /**
-     * @param args the command line arguments
-     */
     
     private final List<Company> listOfCompanies;  //list of all companies in aplication
     private final List<User> listOfUsers;         //list of all users in aplication
     private int countCompanies;      //total number of companies
     private int countUsers;          //total number of users
     
+    /**
+     *Constructor 
+     */
     public Yummy(){
         this.listOfCompanies = new ArrayList<Company>();
         this.listOfUsers = new ArrayList<User>();
@@ -32,63 +32,124 @@ public class Yummy {
     }
     
     //Hermetization OOP principle - Accessors 
+
+    /**
+     *
+     * @return
+     */
     
     public List<Company> getListOfCompanies(){
         return this.listOfCompanies;
     }
     
+    /**
+     *
+     * @return
+     */
     public List<User> getListOfUsers(){
         return this.listOfUsers;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getCountCompanies(){
         return this.countCompanies;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getCountUsers(){
         return this.countUsers;
     }
     
     //Hermetization OOP principle - Mutators
 
+    /**
+     *
+     */
+
     public void incrementCountCompanies(){
         this.countCompanies += 1;
     }
     
+    /**
+     *
+     */
     public void incrementCountUsers(){
         this.countUsers += 1;
     }
     
+    /**
+     *
+     */
     public void decreaseCountCompanies(){
         this.countCompanies -= 1;
     }
     
+    /**
+     *
+     */
     public void decreaseCountUsers(){
         this.countUsers -= 1;
     }
     
     //Methods which helps managing list of users and companies
     
+    /**
+     *Method <b> addElementToListOfCompanies(Company newCompany)</b> is a function which save new object
+     * <i>Company</i> to existing list on field listOfCompanies in class <i>Yummy</i>
+     * and increment number of companies.
+     * @param newCompany Company object that will be added to list 
+     */
     public void addElementToListOfCompanies(Company newCompany){    
         this.listOfCompanies.add(newCompany);
         this.incrementCountCompanies();
     }
     
+    /**
+     *Method <b> addElementToListOfUsers(User newUser)</b> is a function which save new object
+     * <i>User</i> to existing list on field listOfUsers in class <i>Yummy</i> and 
+     * increments number of users.
+     * @param newUser user object that will be added to list 
+     */
     public void addElementToListOfUsers(User newUser){
         this.listOfUsers.add(newUser);
         this.incrementCountUsers();
     }
     
+    /**
+     *Method <b> removeElementToListOfCompanies(Company newCompany)</b> is a function which remove object
+     * <i>Company</i> from existing list on field listOfCompanies in class <i>Yummy</i> 
+     * and decrement number of companies.
+     * @param newCompany company object that will be removed from the list 
+     */
     public void removeElementToListOfCompanies(Company newCompany){
         this.listOfCompanies.remove(newCompany);
         this.decreaseCountCompanies();
     }
     
+    /**
+     *Method <b> removeElementToListOfUsers(User newUser)</b> is a function which remove object
+     * <i>User</i> from existing list on field listOfUsers in class <i>Yummy</i> 
+     * and decrement number of users.
+     * @param newUser user object that will be removed from the list
+     */
     public void removeElementToListOfUsers(User newUser){
         this.listOfUsers.remove(newUser);
         this.decreaseCountUsers();
     }
     
+    /**
+     *Method <b> chooseCompany(String compName)</b> is a function, which goes through
+     * list of companies and return refference to Company with specified Company name, if
+     * there is no such name return null value.
+     * @param compName name of company that is search
+     * @return object <i>Company</i> if compName matches name or null
+     */
     public Company chooseCompany(String compName){ //go through list and search 
         for(Company C : this.getListOfCompanies()){    // for named product
             if(C.getCompanyName().equals(compName)){
@@ -100,6 +161,13 @@ public class Yummy {
     }
     
     //method for making invoice
+
+    /**
+     *Method <b>createInvoice(User orderingUser)</b> allows to create <i>Order</i> by the <i>User</i>.
+     * <i>User</i> in terminal is asked to choose company from which he want to order and 
+     * then Order is created.
+     * @param orderingUser User who is making order
+     */
     public void createInvoice(User orderingUser){
         Scanner myObj = new Scanner(System.in); 
         System.out.print("Select company: ");
@@ -112,7 +180,10 @@ public class Yummy {
         }
     }
     
-    
+    /**
+     *Main for general testing
+     * @param args
+     */
     public static void main(String[] args) {
         // creating 3 main classes
         System.out.print("Welcome to Yummy\n");

@@ -110,7 +110,7 @@ public class Product {
      * crucial information about product with proper comments. We get
      * information about product name, price, description and its availability.
      */
-    public void printProduct(){    //Prints description about product
+    public void printProduct(){    
         System.out.print("Information about Product: \n");
         System.out.print("Name: " + this.getName() + " Price: " + this.getPrice() + "\n" );
         System.out.print("Description: " + this.getdescription() + "\n" );
