@@ -5,6 +5,10 @@
  */
 package yummy;
 
+import java.util.Scanner;
+
+enum State {LIQUID, FOOD, ITEM, ICE};
+
 /**
  *Class <i>Product</i> represent real products offered by companies. It has its
  * unique name, description, price and information about availability.
@@ -16,6 +20,7 @@ public class Product implements Cloneable{
     private double price;               //price of product
     private static String description;  //short product description
     private boolean onStock;            //info about availablility
+    private State productState; //info about product
     
 
     /**
@@ -33,6 +38,7 @@ public class Product implements Cloneable{
         this.setPrice(price);
         this.setdescription(description);
         this.setIfOnStock(onStock);
+        this.setState();
     }
     
     /**
@@ -82,6 +88,14 @@ public class Product implements Cloneable{
     public boolean getIfOnStock(){
         return this.onStock;
     }
+    
+    /**
+     *Method <b> getState()</b> is an accessor in class <i>Product</i>.
+     * @return enum type State {LIQUID, FOOD, ITEM, ICE} 
+     */
+    public State getState(){
+        return this.productState;
+    }
 
     //Hermetization OOP principle - Mutators
 
@@ -117,6 +131,35 @@ public class Product implements Cloneable{
     public void setIfOnStock(boolean IfOnStock){
         this.onStock = IfOnStock;
     }
+    
+    /**
+     *Method <b> setName(String newName)</b> is an mutator in class <i>Product</i>. It changes name of the product.
+     * @param newName it gets new product name in String format
+     */
+
+    public void setState(){
+        Scanner myObj = new Scanner(System.in);  
+        System.out.print("Select state of your product:\n 1 - Liquid \n 2 - Food \n 3 - Item \n 4 - ICE \n");
+        String operation = myObj.nextLine();    
+        switch(operation){
+        case "1":
+            this.productState = State.LIQUID;
+            break;
+        case "2":
+            this.productState = State.FOOD;
+            break;
+        case "3":
+            this.productState = State.ITEM;
+            break;
+        case "4":
+            this.productState = State.ICE;
+            break;
+        default:
+            this.productState = State.ITEM;
+            break;
+        }
+    }
+    
     
     /**
      *Method <b>printProduct()</b> ia a function, which prints into console all
