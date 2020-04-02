@@ -6,6 +6,7 @@
 package yummy;
 
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 /**
  *Class <i> User</i>, extends class <i>Account</i>. It is specific account for 
@@ -17,7 +18,7 @@ import java.util.Date;
  *  Yummy yummyApp, is a refference to the system
  * @author fdrew
  */
-public final class User extends Account {
+public final class User extends Account implements Comparable<User> {
 
     protected String nickname;      //users nickname  
     private int age;                //age of user crucial if user want to buy items 
@@ -149,6 +150,13 @@ public final class User extends Account {
     }    
     
 
+    @Override
+    public int compareTo(User u2) {
+        String userName1 = this.getNickname();
+	String userName2 = u2.getNickname();
+	//ascending order
+	return userName1.compareTo(userName2);
+    }
 
     /**
      *Method <b>main()</b> for testing: creating user, checking if profile was created succesfully and
@@ -160,4 +168,6 @@ public final class User extends Account {
         me.printProfile();
         me.printHistoryOrders();
     }
+
+
 }

@@ -5,6 +5,7 @@
  */
 package yummy;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ import java.util.Scanner;
  * can store class <i>Product</i>. 
  * @author fdrew
  */
-public final class Company extends Account{
+public class Company extends Account{
     private String companyName;             //company name
     private final List<Product> assortment; //list of products that are sold by comp.
     private double rate; //this option is yet not developed
@@ -27,8 +28,9 @@ public final class Company extends Account{
     //Constructor assinging values after creating company account
 
     /**
-     *<b>Constructor</b> for class <i>Company</i>, it needs following parameters 
-     * six string parameters describing object. Beyond setting appropriate paramiters, it also create ArrayList which
+     *<b>Constructor</b> for class <i>Company</i>, it needs following parameters: 
+     * six string parameters describing object and one double parameter for rate.
+     * Beyond setting appropriate paramiters, it also create ArrayList which
      * can store class <i>Product</i>. Variables name, surname, email, password and localization
      * are given to super constructor in class <i>Account</i>.
      * @param companyName is a name of company for which account was made
@@ -37,13 +39,14 @@ public final class Company extends Account{
      * @param email is account owner email
      * @param password is account owner password 
      * @param localization is account owner current localization
+     * @param initRate is rate of the company
      */
 
-    public Company(String companyName,String name, String surname, String email, String password, String localization) {
+    public Company(String companyName,String name, String surname, String email, String password, String localization, double initRate) {
         super(name, surname, email, password, localization);
         this.setCompanyName(companyName);
         this.assortment = new ArrayList<Product>();
-        this.rate = 0; // yet not available
+        this.rate = initRate; // yet not available
         
         //making some basic product for test
         Product firstProduct = new Product("Pasta",12.50,"Healthy product", true);
@@ -231,8 +234,7 @@ public final class Company extends Account{
         orderingUser.saveOrder(newOrder);       //saveing on user account this order
         return newOrder;
     }
-    
-    
+
     /**
      *Method <b>main()</b> for testing, creating company, checking if adding assortment
      * from terminal works and then chcecking if proper <i>Product</i> was made
@@ -240,7 +242,7 @@ public final class Company extends Account{
      */
     
      public static void main(String[] args) {
-        Company comp = new Company("Nice shop","Roman","Nice","nice@ro.tu","1234","Wrzeszcz");
+        Company comp = new Company("Nice shop","Roman","Nice","nice@ro.tu","1234","Wrzeszcz", 3.23);
         System.out.print("Size of assortment: " + comp.assortment.size() + "\n\n");
         comp.addAssortment();
         System.out.print("Size of assortment: " +comp.assortment.size() + "\n\n");

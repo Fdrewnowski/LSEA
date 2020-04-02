@@ -36,8 +36,9 @@ public class Product implements Cloneable{
     }
     
     /**
-     * 
-     * @return
+     * Method <b>clone()</b> useing interface <i>Cloneable</i> allows for deep cloning
+     * of <i>Product</i> objects.
+     * @return new <i>Product</i> object which is a copy of orginal <i>Product</i>
      * @throws CloneNotSupportedException 
      */
     

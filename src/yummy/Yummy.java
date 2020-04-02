@@ -6,8 +6,15 @@
 package yummy;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  *Class Yummy is main class for this project. It stores two lists of companies in the system and users.
@@ -17,7 +24,7 @@ import java.util.Scanner;
 public class Yummy {
     
     private final List<Company> listOfCompanies;  //list of all companies in aplication
-    private final List<User> listOfUsers;         //list of all users in aplication
+    private final TreeSet<User> listOfUsers;         //list of all users in aplication
     private int countCompanies;      //total number of companies
     private int countUsers;          //total number of users
     
@@ -28,7 +35,7 @@ public class Yummy {
      */
     public Yummy(){
         this.listOfCompanies = new ArrayList<Company>();
-        this.listOfUsers = new ArrayList<User>();
+        this.listOfUsers = new TreeSet<User>();
         this.countCompanies = 0;
         this.countUsers = 0;
     }
@@ -48,7 +55,7 @@ public class Yummy {
      *Method <b> getListOfUsers()</b> is an accessor in class<i>Yummy</i>.
      * @return field listOfUsers which is array list of users
      */
-    public List<User> getListOfUsers(){
+    public Set<User> getListOfUsers(){
         return this.listOfUsers;
     }
     
@@ -181,39 +188,41 @@ public class Yummy {
             firstOrder.printOrder();
         }
     }
+    class sortByRate implements Comparator<Company>{
+        
+    @Override
+    public int compare(Company c1, Company c2) {
+
+               //descending order
+               if(c2.getRate()>c1.getRate()){  
+                    return 1;  
+               }else if(c2.getRate()<c1.getRate()){  
+                    return -1;  
+               }else{  
+                    return 0;  
+               }
+    }
+    }
+    
     
     /**
      *Main for general testing
      * @param args
      */
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public void main(String[] args) throws CloneNotSupportedException {
         // creating 3 main classes
         System.out.print("Welcome to Yummy\n");
         System.out.print("This is demo with hardcoded one company acount and one user account \n\n");
         Yummy app = new Yummy();
         User me = new User("Drewno", "Filip","Drewnowski","fd@vp.pl","123","Kielpino gorne","17-02-1998", app);
-        Company comp = new Company("NiceShop","Roman","Nice","nice@ro.pl","1234","Wrzeszcz");
+        User you = new User("Aserski", "Jack","Smith","jsca@vp.pl","12asd3","London","17-09-2002", app);
+        Company comp = new Company("NiceShop","Roman","Nice","nice@ro.pl","1234","Wrzeszcz", 2.11);
+        Company comp2 = new Company("BadShop","Jack","Bad","bad@ru.pl","12we34","Orunia", 4.5);
+
         //printing objects
         comp.printProfile();
         me.printProfile();
-        
-        
-        //SHOW POLYMORPHISM EXAMPLE - having such table we can call printProfile method for every object in that table
-        
-        System.out.print("\nPOLYMORPHISM EXAMPLE \n\n");
-        
-        Account[] tab = new Account[4];
-        tab[0] = new User();
-        tab[1] = new User("BOB", "bob","Smith","fdsd@pr.eu","123","Sopot","17-08-1954", app);
-        tab[2] = new Company("NiceShop","Roman","Nice","nice@ro.pl","1234","Wrzeszcz");
-        tab[3] = new Company("BadShop","Jack","Bad","bad@ru.pl","12we34","Orunia");
-        
-        int i=0;
-        while(i < tab.length){
-            tab[i].printProfile();
-            i++;
-        }
-        
+
         //SHOW SHALLOW AND DEEP CLONING
         System.out.print("\nCLONING EXAMPLE \n\n");
 
@@ -227,15 +236,21 @@ public class Yummy {
         
         
         System.out.print("Orginal pizza: " + orginal.getName()+"\n");
-        System.out.print("Shallow cloned: " + clonedShallow.getName()+"\n");
-        System.out.print("Deep cloned: " + clonedDeep.getName()+"\n\n");
+        System.out.print("Shallow cloning: " + clonedShallow.getName()+"\n");
+        System.out.print("Deep cloning: " + clonedDeep.getName()+"\n\n");
 
+
+        //USE AT LEAST 2 COLLECTIONS 
         
-        
-        
-        //adding elements to main base of user and companies
         app.addElementToListOfUsers(me);
+        app.addElementToListOfUsers(you);
+        
+        
         app.addElementToListOfCompanies(comp);
+        app.addElementToListOfCompanies(comp2);
+        Collections.sort(app.getListOfCompanies(), new sortByRate());
+        
+        
         //checking if insert was succesfully       
         //System.out.print("Elements in user list: " + app.listOfUsers.size() + "\n");
         //System.out.print("Elements in company list: " + app.listOfCompanies.size() + "\n\n");
@@ -290,3 +305,21 @@ public class Yummy {
     }
     
 }
+
+/*
+        //SHOW POLYMORPHISM EXAMPLE - having such table we can call printProfile method for every object in that table
+        
+        System.out.print("\nPOLYMORPHISM EXAMPLE \n\n");
+        
+        Account[] tab = new Account[4];
+        tab[0] = new User();
+        tab[1] = new User("BOB", "bob","Smith","fdsd@pr.eu","123","Sopot","17-08-1954", app);
+        tab[2] = new Company("NiceShop","Roman","Nice","nice@ro.pl","1234","Wrzeszcz");
+        tab[3] = new Company("BadShop","Jack","Bad","bad@ru.pl","12we34","Orunia");
+        
+        int i=0;
+        while(i < tab.length){
+            tab[i].printProfile();
+            i++;
+        }
+*/
