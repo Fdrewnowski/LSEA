@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *Class Yummy is main class for this project
+ *Class Yummy is main class for this project. It stores two lists of companies in the system and users.
  * 
  * @author fdrew
  */
@@ -22,7 +22,9 @@ public class Yummy {
     private int countUsers;          //total number of users
     
     /**
-     *Constructor 
+     *<b>Constructor</b> for class <i>Yummy</i>, no parameters needed. Creates two ArrayList 
+     * one for all companies that will be in the system second for all the users that will be in system.
+     * There are also two fields which count number of objects in this lists. 
      */
     public Yummy(){
         this.listOfCompanies = new ArrayList<Company>();
@@ -34,8 +36,8 @@ public class Yummy {
     //Hermetization OOP principle - Accessors 
 
     /**
-     *
-     * @return
+     *Method <b> getListOfCompanies()</b> is an accessor in class<i>Yummy</i>.
+     * @return field listOfCompanies which is array list of companies
      */
     
     public List<Company> getListOfCompanies(){
@@ -43,24 +45,24 @@ public class Yummy {
     }
     
     /**
-     *
-     * @return
+     *Method <b> getListOfUsers()</b> is an accessor in class<i>Yummy</i>.
+     * @return field listOfUsers which is array list of users
      */
     public List<User> getListOfUsers(){
         return this.listOfUsers;
     }
     
     /**
-     *
-     * @return
+     *Method <b> getCountCompanies()</b> is an accessor in class<i>Yummy</i>.
+     * @return number of companies entered to the system, int type
      */
     public int getCountCompanies(){
         return this.countCompanies;
     }
     
     /**
-     *
-     * @return
+     *Method <b> getCountUsers()</b> is an accessor in class<i>Yummy</i>.
+     * @return number of users entered to the system, int type
      */
     public int getCountUsers(){
         return this.countUsers;
@@ -69,7 +71,7 @@ public class Yummy {
     //Hermetization OOP principle - Mutators
 
     /**
-     *
+     *Method <b>incrementCountCompanies()</b> increment field countCompanies.
      */
 
     public void incrementCountCompanies(){
@@ -77,21 +79,21 @@ public class Yummy {
     }
     
     /**
-     *
+     *Method <b>incrementCountCompanies()</b> increment field countUsers.
      */
     public void incrementCountUsers(){
         this.countUsers += 1;
     }
     
     /**
-     *
+     *Method <b>incrementCountCompanies()</b> decrement field countCompanies.
      */
     public void decreaseCountCompanies(){
         this.countCompanies -= 1;
     }
     
     /**
-     *
+     *Method <b>incrementCountCompanies()</b> decrement field countUsers.
      */
     public void decreaseCountUsers(){
         this.countUsers -= 1;
