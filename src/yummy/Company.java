@@ -85,7 +85,8 @@ public final class Company extends Account{
 
     /**
      *Method <b> setRate(double newRate)</b> is a mutator that changes
-     * rate which is assigned to company, for example after actualization, in class <i>Company</i>.
+     * rate, which is assigned to company, for example after actualization,
+     * in class <i>Company</i>.
      * @param newRate new rate number in double format
      */
     public void setRate(double newRate){
@@ -93,10 +94,13 @@ public final class Company extends Account{
     }
     
     /**
-     *
+     *Method <b>printProfile()</b> ia a function, which prints into console all
+     * crucial information about company profile with proper comments. We get
+     * information about company name, owners name and surname, localization 
+     * of the company and rate.
      */
     @Override
-    public void printProfile(){ //Prints information about company
+    public void printProfile(){
         System.out.print("Information about Company: \n");
         System.out.print("Company name: " + this.getCompanyName() + "\n");
         System.out.print("Owner name: " + super.getName() + " Owner surname: " + super.getSurname() + "\n" );
@@ -107,26 +111,31 @@ public final class Company extends Account{
     //Methods which helps dealing with list of assortment
 
     /**
-     *
-     * @param newAssortment
+     *Method <b> saveAssortment(Product newAssortment)</b> is a function which save new object
+     * <i>Product</i> to existing list on field assortment in class <i>Company</i>.
+     * @param newAssortment element which will be added to the list, type <i>Product</i>
      */
     public void saveAssortment(Product newAssortment){
         this.assortment.add(newAssortment);
     }
 
     /**
-     *
-     * @param assortmentToRemove
+     *Method <b> removeAssortment(Product assortmentToRemove)</b> is a function which remove object
+     * <i>Product</i> from existing list on field assortment in class <i>Company</i>.
+     * @param assortmentToRemove element which will be removed from the list, type <i>Product</i>
      */
     public void removeAssortment(Product assortmentToRemove){
         this.assortment.remove(assortmentToRemove);
     }
     
     /**
-     *
+     *Method <b> addAssortment()</b> is a function which creates new object
+     * <i>Product</i> from input provided by user(in terminal). After creating new object
+     * it is saved into existing list on field assortment using method <b> saveAssortment(Product newAssortment)</b>,
+     * in class <i>Company</i>.
      */
-    public void addAssortment(){    //method through which new product can be added
-        String name, desc;          //to assortment of company
+    public void addAssortment(){
+        String name, desc;
         boolean onStock;
         double price;
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -144,12 +153,17 @@ public final class Company extends Account{
     }
     
     /**
-     *
-     * @param name
-     * @return
+     *Method <b> chooseAssortment(String name)</b> is a function which goes through
+     * list of assortment and is searching for product with specific name. Name of 
+     * <i>Product</i> is in String format. Function returns object <i>Product</i>, 
+     * which name is the same as the parameter, if there isnt such object it returns
+     * null value.
+     * @param name it is a name of the product we are looking for
+     * @return object <i>Product</i> which name equals param name or null value if 
+     * there is no such object
      */
-    public Product chooseAssortment(String name){ //go through list and search 
-        for(Product p : this.getAssortment()){    // for named product
+    public Product chooseAssortment(String name){  
+        for(Product p : this.getAssortment()){
             if(p.getName().equals(name)){
                 return p;
             }
@@ -158,7 +172,8 @@ public final class Company extends Account{
     }
     
     /**
-     *
+     *Method <b>printAssortment()</b> ia a function, which goes through assortment
+     * list and triger method <b>printProduct()</b> for all products in the list.
      */
     public void printAssortment(){      //prints all products in an offer
         for(Product p : this.getAssortment()){
@@ -167,9 +182,15 @@ public final class Company extends Account{
     }
     
     /**
-     *
-     * @param orderingUser
-     * @return
+     *Method <b> createOrder(User orderingUser)</b> is a function which creates new object
+     * <i>Order</i>. Firstly, it call method <b>printAssortment()</b> to show list of all
+     * products in specific company, then user enters in terminal names of products, then if 
+     * such <i>Product</i> exists it is added to <i>Order</i>. Writting "ok" in terminal ends process
+     * of selecting products. After it, other crucial information are filled in like who ordered, from which 
+     * company and total price for order. Then <i>Order</i> is saved in <i>User</i> history of orders.
+     * Function returns created object <i>Order</i>.
+     * @param orderingUser object <i>User</i> which is creating <i>Order</i>
+     * @return object <i>Order</i> which was made during this function
      */
     public Order createOrder(User orderingUser){     //using this method user can order
         Order newOrder = new Order();           //his/her shopping
@@ -205,14 +226,10 @@ public final class Company extends Account{
     }
     
     
-    //main for testing 
-    //creating company
-    //adding first assortment from command line 
-    //checking if it inserted and what was created
-
     /**
-     *
-     * @param args
+     *Method <b>main()</b> for testing, creating company, checking if adding assortment
+     * from terminal works and then chcecking if proper <i>Product</i> was made
+     * @param args eventual params for main  
      */
     
      public static void main(String[] args) {
