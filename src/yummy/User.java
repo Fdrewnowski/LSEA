@@ -150,6 +150,11 @@ public final class User extends Account implements Comparable<User> {
     }    
     
 
+    /**
+     * 
+     * @param u2
+     * @return 
+     */
     @Override
     public int compareTo(User u2) {
         String userName1 = this.getNickname();

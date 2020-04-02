@@ -188,28 +188,14 @@ public class Yummy {
             firstOrder.printOrder();
         }
     }
-    class sortByRate implements Comparator<Company>{
-        
-    @Override
-    public int compare(Company c1, Company c2) {
+    
+    
 
-               //descending order
-               if(c2.getRate()>c1.getRate()){  
-                    return 1;  
-               }else if(c2.getRate()<c1.getRate()){  
-                    return -1;  
-               }else{  
-                    return 0;  
-               }
-    }
-    }
-    
-    
     /**
      *Main for general testing
      * @param args
      */
-    public void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) throws CloneNotSupportedException {
         // creating 3 main classes
         System.out.print("Welcome to Yummy\n");
         System.out.print("This is demo with hardcoded one company acount and one user account \n\n");
@@ -224,7 +210,7 @@ public class Yummy {
         me.printProfile();
 
         //SHOW SHALLOW AND DEEP CLONING
-        System.out.print("\nCLONING EXAMPLE \n\n");
+        System.out.print("\n CLONING EXAMPLE \n\n");
 
         Product orginal = new Product("Pizza peperoni",15.00,"pizza with peperoni", true);
         Product clonedShallow = orginal;
@@ -304,6 +290,33 @@ public class Yummy {
         }
     }
     
+
+}
+
+/**
+ * 
+ * @author fdrew
+ */
+class sortByRate implements Comparator<Company> {
+
+    /**
+     * 
+     * @param c1
+     * @param c2
+     * @return 
+     */
+    @Override
+    public int compare(Company c1, Company c2) {
+
+        //descending order
+        if (c2.getRate() > c1.getRate()) {
+            return 1;
+        } else if (c2.getRate() < c1.getRate()) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 }
 
 /*
