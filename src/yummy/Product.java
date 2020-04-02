@@ -6,7 +6,8 @@
 package yummy;
 
 /**
- *
+ *Class <i>Product</i> represent real products offered by companies. It has its
+ * unique name, description, price and information about availability.
  * @author fdrew
  */
 public class Product {
@@ -16,14 +17,15 @@ public class Product {
     private static String description;  //short product description
     private boolean onStock;            //info about availablility
     
-    //Constructor - creating product
 
     /**
-     *
-     * @param name
-     * @param price
-     * @param description
-     * @param onStock
+     *<b>Constructor</b> for class <i>Product</i>, it needs following parameters 
+     * two string parameters describing object(name,description), double parameter
+     * for price and boolean type for availability.
+     * @param name is a name of product in String format
+     * @param price is a price of a product in double format
+     * @param description is a description of a product in String format
+     * @param onStock  is a boolean type and represent availability of a product
      */
     
     public Product(String name, double price, String description, boolean onStock){
@@ -36,8 +38,8 @@ public class Product {
     //Hermetization OOP principle - Accessors 
 
     /**
-     *
-     * @return
+     *Method <b> getName()</b> is an accessor in class <i>Product</i>.
+     * @return name of the product in String format
      */
 
     public String getName(){
@@ -45,24 +47,24 @@ public class Product {
     }
 
     /**
-     *
-     * @return
+     *Method <b> getPrice()</b> is an accessor in class <i>Product</i>.
+     * @return price of the product in double format
      */
     public double getPrice(){
         return this.price;
     }
 
     /**
-     *
-     * @return
+     *Method <b> getdescription()</b> is an accessor in class <i>Product</i>.
+     * @return description of the product in String format
      */
     public String getdescription(){
         return this.description;
     }
 
     /**
-     *
-     * @return
+     *Method <b> getIfOnStock()</b> is an accessor in class <i>Product</i>.
+     * @return true/false value about availability of the product 
      */
     public boolean getIfOnStock(){
         return this.onStock;
@@ -71,8 +73,8 @@ public class Product {
     //Hermetization OOP principle - Mutators
 
     /**
-     *
-     * @param newName
+     *Method <b> setName(String newName)</b> is an mutator in class <i>Product</i>. It changes name of the product.
+     * @param newName it gets new product name in String format
      */
 
     public void setName(String newName){
@@ -80,31 +82,33 @@ public class Product {
     }
 
     /**
-     *
-     * @param newPrice
+     *Method <b> setPrice(double newPrice)</b> is an mutator in class <i>Product</i>. It changes price of the product.
+     * @param newPrice new price of the product in double format
      */
     public void setPrice(double newPrice){
         this.price = newPrice;
     }
 
     /**
-     *
-     * @param newDesc
+     *Method <b> setdescription(String newDesc)</b> is an mutator in class <i>Product</i>. It changes description of the product.
+     * @param newDesc new description of the product in String format
      */
     public void setdescription(String newDesc){
         this.description = newDesc;
     }
 
     /**
-     *
-     * @param IfOnStock
+     *Method <b> setIfOnStock(boolean IfOnStock</b> is an mutator in class <i>Product</i>. It changes onStock field in the product.
+     * @param IfOnStock boolean type which tells us if its available
      */
     public void setIfOnStock(boolean IfOnStock){
         this.onStock = IfOnStock;
     }
     
     /**
-     *
+     *Method <b>printProduct()</b> ia a function, which prints into console all
+     * crucial information about product with proper comments. We get
+     * information about product name, price, description and its availability.
      */
     public void printProduct(){    //Prints description about product
         System.out.print("Information about Product: \n");
