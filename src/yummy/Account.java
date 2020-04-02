@@ -26,8 +26,6 @@ import java.util.List;
  * @author fdrew
  */
 
-//
-
 public abstract class Account {      
     
     private String name;            //account owner name 
@@ -177,7 +175,7 @@ public abstract class Account {
     }
 
     /**
-     *Method <b> saveOrder(Order newOrder)</b> is a function which remove object
+     *Method <b> removeOrder(Order orderToRemove)</b> is a function which remove object
      * <i>Order</i> from existing list on field this.orders in class <i>Account</i>.
      * @param orderToRemove element which will be removed from the list, type <i>Order</i>
      */
