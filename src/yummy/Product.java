@@ -10,7 +10,7 @@ package yummy;
  * unique name, description, price and information about availability.
  * @author fdrew
  */
-public class Product {
+public class Product implements Cloneable{
     
     private String name;                //name of product
     private double price;               //price of product
@@ -33,6 +33,18 @@ public class Product {
         this.setPrice(price);
         this.setdescription(description);
         this.setIfOnStock(onStock);
+    }
+    
+    /**
+     * 
+     * @return
+     * @throws CloneNotSupportedException 
+     */
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Product cloned = (Product)super.clone();
+        return cloned;
     }
     
     //Hermetization OOP principle - Accessors 

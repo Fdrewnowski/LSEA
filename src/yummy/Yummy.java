@@ -186,7 +186,7 @@ public class Yummy {
      *Main for general testing
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         // creating 3 main classes
         System.out.print("Welcome to Yummy\n");
         System.out.print("This is demo with hardcoded one company acount and one user account \n\n");
@@ -214,8 +214,23 @@ public class Yummy {
             i++;
         }
         
-        //GIT
+        //SHOW SHALLOW AND DEEP CLONING
+        System.out.print("\nCLONING EXAMPLE \n\n");
 
+        Product orginal = new Product("Pizza peperoni",15.00,"pizza with peperoni", true);
+        Product clonedShallow = orginal;
+        Product clonedDeep = (Product) orginal.clone();
+        
+        clonedShallow.setName("Peperonii");
+        clonedDeep.setName("Hawaii");
+        clonedDeep.setdescription("Pizza with pineapple");
+        
+        
+        System.out.print("Orginal pizza: " + orginal.getName()+"\n");
+        System.out.print("Shallow cloned: " + clonedShallow.getName()+"\n");
+        System.out.print("Deep cloned: " + clonedDeep.getName()+"\n\n");
+
+        
         
         
         //adding elements to main base of user and companies
