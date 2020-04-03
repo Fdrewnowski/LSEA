@@ -198,7 +198,7 @@ public class Yummy {
     public static void main(String[] args) throws CloneNotSupportedException {
         // creating 3 main classes
         System.out.print("Welcome to Yummy\n");
-        System.out.print("This is demo with hardcoded one company acount and one user account \n\n");
+        System.out.print("This is demo with hardcoded one company account and one user account \n\n");
         Yummy app = new Yummy();
         User me = new User("Drewno", "Filip","Drewnowski","fd@vp.pl","123","Kielpino gorne","17-02-1998", app);
         User you = new User("Aserski", "Jack","Smith","jsca@vp.pl","12asd3","London","17-09-2002", app);
@@ -208,25 +208,21 @@ public class Yummy {
         //printing objects
         comp.printProfile();
         me.printProfile();
-
-        //SHOW SHALLOW AND DEEP CLONING
-        System.out.print("\n CLONING EXAMPLE \n\n");
-
-        Product orginal = new Product("Pizza peperoni",15.00,"pizza with peperoni", true);
-        Product clonedShallow = orginal;
-        Product clonedDeep = (Product) orginal.clone();
-        
-        clonedShallow.setName("Peperonii");
-        clonedDeep.setName("Hawaii");
-        clonedDeep.setdescription("Pizza with pineapple");
         
         
-        System.out.print("Orginal pizza: " + orginal.getName()+"\n");
-        System.out.print("Shallow cloning: " + clonedShallow.getName()+"\n");
-        System.out.print("Deep cloning: " + clonedDeep.getName()+"\n\n");
+        //SHOW DEEP CLONING
+        System.out.print("\n\nSHOW DEEP CLONING \n");
+        Product someProduct = new Product("Pizza peperoni",15.00,"pizza with peperoni", true, "FOOD");
+        Order original = new Order();
+        original.saveOrderedItem(someProduct);
+        Order DeepClone = original.clone();
+        DeepClone.getAllOrderedItems().get(0).setName("Peperonii");
+        System.out.print("Orginal pizza: " + original.getAllOrderedItems().get(0).getName() + "\n");
+        System.out.print("Deep cloning: " + DeepClone.getAllOrderedItems().get(0).getName()+ "\n\n");
 
-
-        //USE AT LEAST 2 COLLECTIONS 
+        //USE AT LEAST 2 COLLECTIONS
+        
+        System.out.print("\nUSE AT LEAST 2 COLLECTIONS \n\n");
         
         app.addElementToListOfUsers(me);
         app.addElementToListOfUsers(you);

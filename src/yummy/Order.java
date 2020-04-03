@@ -19,10 +19,10 @@ import java.util.List;
  * String whoOrdered user nickname who made order
  * @author fdrew
  */
-public final class Order {
+public final class Order implements Cloneable {
     
     private double totalPrice;                      //total price from order 
-    private final List<Product> allOrderedItems;    //list of all selected products
+    private List<Product> allOrderedItems;          //list of all selected products
     private String companyFrom;                     //company in which user buys
     private String whoOrdered;                      //nickname of user
     
@@ -141,6 +141,33 @@ public final class Order {
     public void removeOrderedItem(Product assortmentToRemove){
         this.allOrderedItems.remove(assortmentToRemove);
     }
+    
+    /**
+     * 
+     */
+    public void createNewArray(){
+        this.allOrderedItems = new ArrayList<Product>();
+    }
+    
+    
+    /**
+     * Method <b>clone()</b> useing interface <i>Cloneable</i> allows for deep cloning
+     * of <i>Order</i> objects.
+     * @return new <i>Order</i> object which is a copy of orginal <i>Order</i>
+     * @throws CloneNotSupportedException 
+     */
+    
+    @Override
+    protected Order clone() throws CloneNotSupportedException{
+        Order cloned = (Order)super.clone();
+        cloned.createNewArray();
+        for(Product p : this.getAllOrderedItems()){
+            Product productCopy = (Product)p.clone();
+            cloned.saveOrderedItem(productCopy);
+        }
+        return cloned;
+    }
+    
     
     /**
      *Method <b>printOrder()</b> ia a function, which prints into console all

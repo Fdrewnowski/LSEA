@@ -49,7 +49,7 @@ public class Company extends Account{
         this.rate = initRate; // yet not available
         
         //making some basic product for test
-        Product firstProduct = new Product("Pasta",12.50,"Healthy product", true);
+        Product firstProduct = new Product("Pasta",12.50,"Healthy product", true, "FOOD");
         this.saveAssortment(firstProduct);
     }
     

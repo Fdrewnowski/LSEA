@@ -7,7 +7,7 @@ package yummy;
 
 import java.util.Scanner;
 
-enum State {LIQUID, FOOD, ITEM, ICE};
+//enum type
 
 /**
  *Class <i>Product</i> represent real products offered by companies. It has its
@@ -16,6 +16,8 @@ enum State {LIQUID, FOOD, ITEM, ICE};
  */
 public class Product implements Cloneable{
     
+    enum State {LIQUID, FOOD, ITEM, ICE};
+
     private String name;                //name of product
     private double price;               //price of product
     private static String description;  //short product description
@@ -42,16 +44,22 @@ public class Product implements Cloneable{
     }
     
     /**
-     * Method <b>clone()</b> useing interface <i>Cloneable</i> allows for deep cloning
-     * of <i>Product</i> objects.
-     * @return new <i>Product</i> object which is a copy of orginal <i>Product</i>
-     * @throws CloneNotSupportedException 
+     *<b>Constructor</b> for class <i>Product</i>, it needs following parameters 
+     * two string parameters describing object(name,description), double parameter
+     * for price and boolean type for availability.
+     * @param name is a name of product in String format
+     * @param price is a price of a product in double format
+     * @param description is a description of a product in String format
+     * @param onStock  is a boolean type and represent availability of a product
+     * @param newState is a state of object
      */
     
-    @Override
-    protected Object clone() throws CloneNotSupportedException{
-        Product cloned = (Product)super.clone();
-        return cloned;
+    public Product(String name, double price, String description, boolean onStock, String newState){
+        this.setName(name);
+        this.setPrice(price);
+        this.setdescription(description);
+        this.setIfOnStock(onStock);
+        this.setState(newState);
     }
     
     //Hermetization OOP principle - Accessors 
@@ -133,8 +141,7 @@ public class Product implements Cloneable{
     }
     
     /**
-     *Method <b> setName(String newName)</b> is an mutator in class <i>Product</i>. It changes name of the product.
-     * @param newName it gets new product name in String format
+     *Method <b> setState()</b> is an mutator in class <i>Product</i>. It sets state of the product.
      */
 
     public void setState(){
@@ -159,6 +166,21 @@ public class Product implements Cloneable{
             break;
         }
     }
+    
+    /**
+     *Method <b> setState(String newState)</b> is an mutator in class <i>Product</i>. It sets state of the product.
+     * @param newState it gets new state of product in String format
+     */
+
+    public void setState(String newState){
+        this.productState = State.valueOf(newState);
+    }
+    
+    @Override
+    protected Product clone() throws CloneNotSupportedException {
+        Product cloned = (Product)super.clone();
+        return cloned;
+}
     
     
     /**
